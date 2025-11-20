@@ -24,10 +24,11 @@ char *get_next_line(int fd)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	byte += read(fd, buffer, BUFFER_SIZE);
-	stash = ft_stash(buffer, )
-	while (lire partie)
-
+	while (!(ft_strchr(fd, '\n') && byte < 0))
+	{
+		byte += read(fd, buffer, BUFFER_SIZE);
+		stash = ft_stash(buffer, );
+	}
 	return (stash);
 }
 

@@ -12,16 +12,15 @@
 
 #include "get_next_line.h"
 
-ssize_t	*ft_read(fd, buffer, BUFFER_SIZE)
+ssize_t	ft_read(fd, buffer, BUFFER_SIZE)
 {
 	ssize_t	byte;
 	
-	
-	if (!fd)
+	byte = 0;
+	if (fd < 0)
 		return(-1);
+	byte += BUFFER_SIZE
 	return (byte);
 }
 
-
-// 1 . fonction tampon stattique pour enregistrer la ou le buffer sarrete (stash)
-// 2. FONCTION \n apres chaque buffer size 
+ft_stach()
