@@ -6,7 +6,7 @@
 /*   By: fde-chec <fde-chec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 10:44:47 by fde-chec          #+#    #+#             */
-/*   Updated: 2025/11/20 17:44:02 by fde-chec         ###   ########.fr       */
+/*   Updated: 2025/11/23 22:42:09 by fde-chec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,38 @@
 
 char *get_next_line(int fd)
 {
-	char	*buffer;
+	char	buffer[BUFFER_SIZE + 1];
 	ssize_t	byte;
-	char	*stash;
-	
-	byte = 0;
-	if (fd < 0)
+	static char	*stash = NULL;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buffer)
+	if (byte < 0)
 		return (NULL);
-	while (!(ft_strchr(fd, '\n') && byte < 0))
-	{
-		byte += read(fd, buffer, BUFFER_SIZE);
-		stash = ft_stash(buffer, );
+	while (!ft_strchr(stash, '\n') && byte > 0)
+	{ 
+		byte = read(fd, buffer, BUFFER_SIZE);
+		buffer[byte] = '\0';
+		stash = ft_strjoin(stash, buffer);
 	}
-	return (stash);
+	return(stash);
 }
 
 int main()
 {
 	int fd;
-
-	fd = open("./paco", O_RDONLY);
-	if (fd < 0)
-		return (0);
+	int i;
 	char *line;
-	line = get_next_line(fd);
-	printf("%s", line);
-	free(line);
+
+	i = 0;
+	fd = open("test.txt", O_RDONLY);
+	if (fd < 0)
+		return (1);
+	while((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		i++;
+	}
 	close(fd);
+	return (0);
 }
