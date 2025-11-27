@@ -6,7 +6,7 @@
 /*   By: fde-chec <fde-chec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 10:45:36 by fde-chec          #+#    #+#             */
-/*   Updated: 2025/11/21 23:20:53 by fde-chec         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:51:40 by fde-chec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@
 # include <stdlib.h>
 
 # ifndef	BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 10000000
 # endif
 
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *s);
-void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*ft_line(char *stash);
+char	*ft_next_line(char *stash, char *line);
+char	*ft_get_line(int fd, char *stash, char *buffer, ssize_t byte);
 
 
 #endif
