@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-chec <fde-chec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 10:45:13 by fde-chec          #+#    #+#             */
-/*   Updated: 2025/11/27 17:12:26 by fde-chec         ###   ########.fr       */
+/*   Created: 2025/11/27 16:53:09 by fde-chec          #+#    #+#             */
+/*   Updated: 2025/11/27 17:13:26 by fde-chec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
